@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+const bottomContainerHeight = 80.0;
+const activeColor = Color(0xFF1D1E33);
+const bottomContainerColor = Color(0xFFEB1555);
+
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
@@ -20,36 +24,43 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: Reusablecard(
-                    color: Color(0xFF1D1E33),
+                    color: activeColor,
                   ),
                 ),
                 Expanded(
                   child: Reusablecard(
-                    color: Color(0xFF1D1E33),
+                    color: activeColor,
                   ),
                 ),
               ],
             )),
             Expanded(
               child: Reusablecard(
-                color: Color(0xFF1D1E33),
+                color: activeColor,
               ),
             ),
             Expanded(
-                child: Row(
-              children: [
-                Expanded(
-                  child: Reusablecard(
-                    color: Color(0xFF1D1E33),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Reusablecard(
+                      color: activeColor,
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: Reusablecard(
-                    color: Color(0xFF1D1E33),
-                  ),
-                )
-              ],
-            )),
+                  Expanded(
+                    child: Reusablecard(
+                      color: activeColor,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              color: bottomContainerColor,
+              margin: EdgeInsets.only(top: 10),
+              width: double.infinity,
+              height: bottomContainerHeight,
+            )
           ],
         ));
   }
