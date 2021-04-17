@@ -37,6 +37,7 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
+                        // ignore: unnecessary_statements
                         selectedGender == Gender.male;
                       });
                     },
@@ -54,6 +55,7 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
+                        // ignore: unnecessary_statements
                         selectedGender == Gender.female;
                       });
                     },
