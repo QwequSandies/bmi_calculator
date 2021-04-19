@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
-
-const bottomContainerHeight = 80.0;
-const activeColor = Color(0xFF1D1E33);
-const inactiveColor = Color(0xFF111328);
-const bottomContainerColor = Color(0xFFEB1555);
+import 'constants.dart';
 
 enum Gender {
   male,
   female,
 }
+
+int height = 180;
 
 class InputPage extends StatefulWidget {
   @override
@@ -29,44 +27,41 @@ class _InputPageState extends State<InputPage> {
           centerTitle: true,
         ),
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
                 child: Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        // ignore: unnecessary_statements
-                        selectedGender == Gender.male;
-                      });
-                    },
-                    child: Reusablecard(
-                        cardChild: IconContent(
-                          icon: FontAwesomeIcons.mars,
-                          label: 'MALE',
-                        ),
-                        color: selectedGender == Gender.male
-                            ? activeColor
-                            : inactiveColor),
-                  ),
+                  child: Reusablecard(
+                      onPress: () {
+                        setState(() {
+                          // ignore: unnecessary_statements
+                          selectedGender == Gender.male;
+                        });
+                      },
+                      cardChild: IconContent(
+                        icon: FontAwesomeIcons.mars,
+                        label: 'MALE',
+                      ),
+                      color: selectedGender == Gender.male
+                          ? activeColor
+                          : inactiveColor),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: Reusablecard(
+                    onPress: () {
                       setState(() {
                         // ignore: unnecessary_statements
                         selectedGender == Gender.female;
                       });
                     },
-                    child: Reusablecard(
-                      color: selectedGender == Gender.female
-                          ? activeColor
-                          : inactiveColor,
-                      cardChild: IconContent(
-                        icon: FontAwesomeIcons.venus,
-                        label: 'FEMALE',
-                      ),
+                    color: selectedGender == Gender.female
+                        ? activeColor
+                        : inactiveColor,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.venus,
+                      label: 'FEMALE',
                     ),
                   ),
                 ),
@@ -75,6 +70,42 @@ class _InputPageState extends State<InputPage> {
             Expanded(
               child: Reusablecard(
                 color: activeColor,
+                cardChild: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      height.toString(),
+                      style: LabelTextStyle,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: [
+                        Text(
+                          '180',
+                          style: KHeightTextStyle,
+                        ),
+                        Text(
+                          'cm',
+                          style: LabelTextStyle,
+                        ),
+                      ],
+                    ),
+                    Slider(
+                      value: height.toDouble(),
+                      min: 120.0,
+                      max: 220.0,
+                      activeColor: Color(0xFFEB1555),
+                      inactiveColor: Color(0XFF8D8E98),
+                      onChanged: (double newValue) {
+                        setState(() {
+                          height = newValue.round();
+                        });
+                      },
+                    )
+                  ],
+                ),
               ),
             ),
             Expanded(
