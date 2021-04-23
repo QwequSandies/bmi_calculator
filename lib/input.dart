@@ -74,7 +74,7 @@ class _InputPageState extends State<InputPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      height.toString(),
+                      'HEIGHT',
                       style: LabelTextStyle,
                     ),
                     Row(
@@ -83,7 +83,7 @@ class _InputPageState extends State<InputPage> {
                       textBaseline: TextBaseline.alphabetic,
                       children: [
                         Text(
-                          '180',
+                          height.toString(),
                           style: KHeightTextStyle,
                         ),
                         Text(
