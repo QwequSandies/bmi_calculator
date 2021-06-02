@@ -220,7 +220,12 @@ class _InputPageState extends State<InputPage> {
                 );
               },
               child: Container(
-                child: Text('CALCULATE'),
+                child: Center(
+                  child: Text(
+                    'CALCULATE',
+                    style: LabelTextStyle,
+                  ),
+                ),
                 color: bottomContainerColor,
                 margin: EdgeInsets.only(top: 10),
                 width: double.infinity,
